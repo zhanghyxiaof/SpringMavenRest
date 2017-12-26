@@ -22,7 +22,7 @@
 	<mvc:annotation-driven />
 
 	<!-- jdbc configuration -->
-	<context:property-placeholder location="classpath:configs/jdbc.properties" />
+	<context:property-placeholder location="classpath:configs/jdbc_sqlserver.properties" />
 	<!-- log4j configuration -->
 	<context:property-placeholder location="classpath:configs/log4j.properties" />
 
@@ -38,7 +38,7 @@
 		value="${url}" /> <property name="username" value="${username}" /> <property 
 		name="password" value="${password}" /> </bean> -->
 
-
+	<!-- For SqlServer
 	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
 		<property name="driverClassName" value="com.microsoft.sqlserver.jdbc.SQLServerDriver" />
 		<property name="url"
@@ -46,7 +46,14 @@
 		<property name="username" value="sa" />
 		<property name="password" value="ca$hc0wW" />
 	</bean>
-
+	-->
+	<!-- For MySql -->
+	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
+		<property name="url" value="jdbc:mysql://10.112.119.31:3306/MyTestDB" />
+		<property name="username" value="root" />
+		<property name="password" value="root" />
+	</bean>
 
 	<mvc:resources mapping="/styles/**" location="/styles/" />
 	<mvc:resources mapping="/scripts/**" location="/scripts/" />
@@ -62,7 +69,7 @@
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSource" />
 		<!-- 自动扫描mapping.xml文件 -->
-		<property name="mapperLocations" value="classpath:hy/springmaven/mapping/*.xml"></property>
+		<property name="mapperLocations" value="classpath:/configs/ImageItemMapper.xml"></property>
 	</bean>
 
 	<!-- DAO接口所在包名，Spring会自动查找其下的类 -->
