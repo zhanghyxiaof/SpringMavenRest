@@ -5,26 +5,26 @@
 	xmlns:context="http://www.springframework.org/schema/context" xmlns:p="http://www.springframework.org/schema/p"
 	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:util="http://www.springframework.org/schema/util"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans
-                        http://www.springframework.org/schema/beans/spring-beans-4.1.xsd
+                        http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
                         http://www.springframework.org/schema/context
-                        http://www.springframework.org/schema/context/spring-context-4.0.xsd
+                        http://www.springframework.org/schema/context/spring-context-4.3.xsd
                         http://www.springframework.org/schema/jee
-                        http://www.springframework.org/schema/jee/spring-jee-4.1.xsd
+                        http://www.springframework.org/schema/jee/spring-jee-4.3.xsd
                         http://www.springframework.org/schema/mvc
-                        http://www.springframework.org/schema/mvc/spring-mvc-4.1.xsd
+                        http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd
                         http://www.springframework.org/schema/util 
-                        http://www.springframework.org/schema/util/spring-util-4.1.xsd">
+                        http://www.springframework.org/schema/util/spring-util-4.3.xsd">
 
 	<!-- <context:annotation-config /> -->
 
 	<context:component-scan base-package="hy.springmaven" />
 
 	<mvc:annotation-driven />
-
+	<!--<import resource="spring-redis.xml"/>-->
 	<!-- jdbc configuration -->
-	<context:property-placeholder location="classpath:configs/jdbc_mysql.properties" />
+	<context:property-placeholder location="classpath:configs/jdbc_mysql.properties" ignore-unresolvable="true"  />
 	<!-- log4j configuration -->
-	<context:property-placeholder location="classpath:configs/log4j.properties" />
+	<context:property-placeholder location="classpath:configs/log4j.properties" ignore-unresolvable="true"  />
 
 	<!-- create jdbc datasource -->
 	<!-- <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" 
