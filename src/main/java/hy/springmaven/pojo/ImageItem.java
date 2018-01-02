@@ -1,6 +1,10 @@
 package hy.springmaven.pojo;
 
-public class ImageItem {
+import org.springframework.data.redis.serializer.JdkSerializationRedisSerializer;
+
+import java.io.Serializable;
+
+public class ImageItem extends JdkSerializationRedisSerializer implements Serializable{
     private String id;
 
     private String name;

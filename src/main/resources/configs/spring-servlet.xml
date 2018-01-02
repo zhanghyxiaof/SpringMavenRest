@@ -20,7 +20,7 @@
 	<context:component-scan base-package="hy.springmaven" />
 
 	<mvc:annotation-driven />
-	<!--<import resource="spring-redis.xml"/>-->
+	<import resource="spring-redis.xml"/>
 	<!-- jdbc configuration -->
 	<context:property-placeholder location="classpath:configs/jdbc_mysql.properties" ignore-unresolvable="true"  />
 	<!-- log4j configuration -->

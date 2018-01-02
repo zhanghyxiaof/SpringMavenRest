@@ -57,7 +57,7 @@ public class RestImageController {
 	}
 
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
-	@Cacheable("getImageById")
+	@Cacheable(value = "ImageCache")
 	@ResponseBody
 	public ImageItem getImageById(@PathVariable String id) {
 		System.out.println("start to get image by id: " + id);
