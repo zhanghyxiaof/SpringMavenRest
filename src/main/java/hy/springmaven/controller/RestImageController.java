@@ -16,6 +16,8 @@ import hy.springmaven.pojo.ImageList;
 import hy.springmaven.service.ImageService;
 import hy.springmaven.service.ImageServiceImpl;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.http.HttpRequest;
@@ -34,6 +36,7 @@ public class RestImageController {
 	@Resource
 	private ImageService imageService;
 
+	protected Log log = LogFactory.getLog(this.getClass());
 	/*
 	 * @RequestMapping(method = RequestMethod.POST)
 	 * 
@@ -60,8 +63,9 @@ public class RestImageController {
 	@Cacheable(value = "ImageCache")
 	@ResponseBody
 	public ImageItem getImageById(@PathVariable String id) {
-		System.out.println("start to get image by id: " + id);
+		log.error("Start to get image by id: " + id);
 		ImageItem imageItem = imageService.getImage(id);
+		log.info("Finish image query for: " + id);
 		return imageItem;
 	}
 

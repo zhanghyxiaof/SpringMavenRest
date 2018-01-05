@@ -24,7 +24,7 @@
 	<!-- jdbc configuration -->
 	<context:property-placeholder location="classpath:configs/jdbc_mysql.properties" ignore-unresolvable="true"  />
 	<!-- log4j configuration -->
-	<context:property-placeholder location="classpath:configs/log4j.properties" ignore-unresolvable="true"  />
+	<!--<context:property-placeholder location="classpath:configs/log4j2.xml" />-->
 
 	<!-- create jdbc datasource -->
 	<!-- <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" 
